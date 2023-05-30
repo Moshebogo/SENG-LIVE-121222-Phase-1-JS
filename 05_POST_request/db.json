@@ -23,6 +23,26 @@
       "number": 5554443333,
       "name": "Tech BooksRus",
       "hours": "Thursday - Saturday 11am - 7pm"
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "location": "test location",
+      "name": "my store",
+      "address": "my address",
+      "hours": "9=5 m-f",
+      "number": "555 555 5555",
+      "id": 8
     }
   ],
   "books": [
@@ -135,6 +155,51 @@
       ],
       "inventory": 20,
       "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/41oYsXjLvZL._SY344_BO1,204,203,200_.jpg"
+    },
+    {
+      "title": "q",
+      "author": "q",
+      "price": 2,
+      "reviews": [],
+      "inventory": null,
+      "imageUrl": "q",
+      "id": 8
+    },
+    {
+      "title": "q",
+      "author": "",
+      "price": null,
+      "reviews": [],
+      "inventory": 0,
+      "imageUrl": "",
+      "id": 9
+    },
+    {
+      "title": "qq",
+      "author": "",
+      "price": null,
+      "reviews": [],
+      "inventory": 0,
+      "imageUrl": "",
+      "id": 10
+    },
+    {
+      "title": "q",
+      "author": "",
+      "price": null,
+      "reviews": [],
+      "inventory": 0,
+      "imageUrl": "",
+      "id": 11
+    },
+    {
+      "title": "qqqqq",
+      "author": "",
+      "price": null,
+      "reviews": [],
+      "inventory": 0,
+      "imageUrl": "",
+      "id": 12
     }
   ]
 }

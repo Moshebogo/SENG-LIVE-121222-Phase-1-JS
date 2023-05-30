@@ -9,7 +9,7 @@ function renderFooter(bookStore) {
   document.querySelector('#number').textContent = bookStore.number;
   document.querySelector('#store').textContent = bookStore.location;
 }
-
+let currentStoreId;
 // adds options to a select tag that allows swapping between different stores
 function renderStoreSelectionOptions(stores) {
   // target the select tag
@@ -24,9 +24,12 @@ function renderStoreSelectionOptions(stores) {
       .then(store => {
         renderHeader(store);
         renderFooter(store);
+        currentStoreId = e.target.value;
       })
   })
 }
+
+
 
 const storeSelector = document.querySelector('#store-selector');
 
@@ -87,8 +90,21 @@ function renderBook(book) {
   btn.textContent = 'Delete';
 
   btn.addEventListener('click', (e) => {
-    li.remove();
-  })
+    fetch(`http://localhost:3000/books/${book.id}`, {
+      method: 'DELETE'
+    })
+    .then(resp => {
+      if (resp.ok) {
+        console.log('delete succes')
+      } else {
+        console.log('error')
+       }
+      }  )
+      .catch(error => console.log(error))
+      
+      li.remove()
+    })
+    
 
   li.append(h3, pAuthor, pPrice, inventoryInput, pStock, img, btn);
   document.querySelector('#book-list').append(li);
@@ -237,7 +253,20 @@ storeForm.addEventListener('submit', (e) => {
   //   },
   if (storeEditMode) {
     // ✅ write code for updating the store here
-    
+    fetch(`http://localhost:3000/stores/${currentStoreId} `,{
+    method: 'PATCH',
+    headers: {
+      'Content-Type': "application-json"
+    },
+    body: JSON.stringify(store)
+  })
+  .then(resp => resp.json())
+  .then(updatedStore => {
+    console.log(updatedStore)
+    renderHeader(updatedStore)
+    renderFooter(updatedStore)
+  })
+    console.log(store, currentStoreId)
     hideStoreForm()
   } else {
     postJSON("http://localhost:3000/stores", store)
